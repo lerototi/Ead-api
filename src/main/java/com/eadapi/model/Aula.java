@@ -23,7 +23,7 @@ public class Aula {
 	private String texto;
 	private Date data;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name = "fk_aula_pai", insertable = true, updatable = true, nullable = true)
 	private Aula aulaPai;
 	
