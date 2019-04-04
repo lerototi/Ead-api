@@ -41,6 +41,17 @@ CREATE TABLE curso_classe(
 	CONSTRAINT fk_usuario_curso_classe FOREIGN KEY (fk_usuario_criador) REFERENCES usuario(id_usuario)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE classe_aula(
+	id_classe_aula BIGINT(20) AUTO_INCREMENT PRIMARY KEY NOT NULL,
+	fk_classe BIGINT(20) NOT NULL,
+	fk_aula BIGINT(20) NOT NULL,
+	fk_usuario BIGINT(20) NOT NULL,
+	data_registro DATETIME NOT NULL,
+	CONSTRAINT fk_classe_classe_aula FOREIGN KEY (fk_classe) REFERENCES classe (id_classe),
+	CONSTRAINT fk_aula_classe_aula FOREIGN KEY (fk_aula) REFERENCES aula (id_aula),
+	CONSTRAINT fk_usuario_classe_aula FOREIGN KEY (fk_usuario) REFERENCES usuario (id_usuario)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 INSERT INTO classe(nome, data_criacao, quantidade_max_alunos) VALUES ("Classe de Força", CURRENT_TIMESTAMP(), 100);
 INSERT INTO classe(nome, data_criacao, quantidade_max_alunos) VALUES ("Classe de Flexibilidade", CURRENT_TIMESTAMP(), 100);

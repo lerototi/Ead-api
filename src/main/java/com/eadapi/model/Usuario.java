@@ -17,7 +17,7 @@ public class Usuario {
 	
 	@Id
 	@GeneratedValue
-	private Long id;
+	private Long idUsuario;
 
 	@Column
 	@NotNull
@@ -41,13 +41,22 @@ public class Usuario {
 	
 	@OneToMany(mappedBy = "usuario")
 	private List<UsuarioClasse> usuarioClasses; 
-	 
-	public Long getId() {
-		return id;
+
+
+	public Long getIdUsuario() {
+		return idUsuario;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setIdUsuario(Long idUsuario) {
+		this.idUsuario = idUsuario;
+	}
+
+	public List<UsuarioClasse> getUsuarioClasses() {
+		return usuarioClasses;
+	}
+
+	public void setUsuarioClasses(List<UsuarioClasse> usuarioClasses) {
+		this.usuarioClasses = usuarioClasses;
 	}
 
 	public String getLogin() {
