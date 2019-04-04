@@ -11,7 +11,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.eadapi.event.RecursoCriadoEvent;
 
 @Component
-public class RecursocriadoListener implements ApplicationListener<RecursoCriadoEvent> {
+public class RecursoCriadoListener implements ApplicationListener<RecursoCriadoEvent> {
 
 	@Override
 	public void onApplicationEvent(RecursoCriadoEvent recursoCriadoEvent) {
