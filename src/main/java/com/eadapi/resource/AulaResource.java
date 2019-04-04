@@ -4,6 +4,7 @@ import java.net.URI;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -31,7 +32,7 @@ public class AulaResource {
 	}
 	
 	@PostMapping
-	public ResponseEntity<Aula> criar(@RequestBody Aula aula, HttpServletResponse response) {
+	public ResponseEntity<Aula> criar(@Valid @RequestBody Aula aula, HttpServletResponse response) {
 		Aula aulaSalva = aulaRepository.save(aula);
 		
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{id}")
