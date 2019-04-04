@@ -17,7 +17,7 @@ public class Classe_aula {
 
 	@Id
 	@GeneratedValue
-	private Long idClasse_aula;
+	private Long idClasseAula;
 	
 	@ManyToOne
 	@JoinColumn(name="fk_classe", nullable=false)
@@ -34,12 +34,12 @@ public class Classe_aula {
 	@Column
 	private Date dataRegistro;
 
-	public Long getIdClasse_aula() {
-		return idClasse_aula;
+	public Long getIdClasseAula() {
+		return idClasseAula;
 	}
 
-	public void setIdClasse_aula(Long idClasse_aula) {
-		this.idClasse_aula = idClasse_aula;
+	public void setIdClasseAula(Long idClasseAula) {
+		this.idClasseAula = idClasseAula;
 	}
 
 	public Classe getClasse() {
