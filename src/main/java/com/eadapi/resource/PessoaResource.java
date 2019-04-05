@@ -20,7 +20,7 @@ import com.eadapi.model.Pessoa;
 import com.eadapi.repository.PessoaRepository;
 
 @RestController
-@RequestMapping("/Pessoa")
+@RequestMapping("/pessoa")
 public class PessoaResource {
 	
 	@Autowired
@@ -40,7 +40,7 @@ public class PessoaResource {
 		
 		Pessoa pessoaSalva = pessoaRepository.save(pessoa);
 		
-		publisher.publishEvent(new RecursoCriadoEvent(this, response, pessoaSalva.getId()));
+		publisher.publishEvent(new RecursoCriadoEvent(this, response, pessoaSalva.getIdPessoa()));
 		
 		return ResponseEntity.status(HttpStatus.CREATED).body(pessoaSalva);
 	}
@@ -52,5 +52,8 @@ public class PessoaResource {
 		
 		return pessoa != null ? ResponseEntity.ok(pessoa) : ResponseEntity.notFound().build();
 	}
+	
+	
+
 	
 }

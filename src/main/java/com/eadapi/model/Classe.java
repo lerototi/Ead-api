@@ -1,13 +1,11 @@
 package com.eadapi.model;
 
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -26,9 +24,6 @@ public class Classe {
 	@Column
 	@NotNull
 	private Date dataCriacao;
-	
-	@OneToMany(mappedBy = "classe")
-	private List<UsuarioClasse> usuarioClasses;
 
 	public Long getIdClasse() {
 		return idClasse;

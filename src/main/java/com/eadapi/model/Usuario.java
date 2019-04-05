@@ -39,9 +39,9 @@ public class Usuario {
 	@NotNull
 	private boolean ativo;
 	
-	@OneToMany(mappedBy = "usuario")
-	private List<UsuarioClasse> usuarioClasses; 
-
+	
+	@OneToMany(mappedBy="usuario")
+	private List<UsuarioCurso> usuarioCursos;
 
 	public Long getIdUsuario() {
 		return idUsuario;
@@ -49,14 +49,6 @@ public class Usuario {
 
 	public void setIdUsuario(Long idUsuario) {
 		this.idUsuario = idUsuario;
-	}
-
-	public List<UsuarioClasse> getUsuarioClasses() {
-		return usuarioClasses;
-	}
-
-	public void setUsuarioClasses(List<UsuarioClasse> usuarioClasses) {
-		this.usuarioClasses = usuarioClasses;
 	}
 
 	public String getLogin() {

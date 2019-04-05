@@ -7,8 +7,11 @@ import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.hibernate.validator.constraints.br.CPF;
 
 @Entity
 @Table(name="pessoa")
@@ -16,7 +19,8 @@ public class Pessoa {
 
 	@Id
 	@GeneratedValue
-	private Long id;
+	@Column(name="id_pessoa")
+	private Long idPessoa;
 	
 	@Column
 	private String nome;
@@ -34,17 +38,18 @@ public class Pessoa {
 	private Date nascimento;
 	
 	@OneToOne
+	@JoinColumn(name="fk_usuario")
 	private Usuario usuario;
 	
 	@Embedded
 	private Endereco endereco;
 
-	public Long getId() {
-		return id;
+	public Long getIdPessoa() {
+		return idPessoa;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setIdPessoa(Long idPessoa) {
+		this.idPessoa = idPessoa;
 	}
 
 	public String getNome() {

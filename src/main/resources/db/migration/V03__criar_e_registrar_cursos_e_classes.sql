@@ -16,7 +16,7 @@ CREATE TABLE curso_usuario(
 	fk_usuario BIGINT(20) NOT NULL,
 	fk_curso BIGINT(20) NOT NULL,
 	pago BOOLEAN NOT NULL,
-	valor DECIMAL(7,2),
+	valor_pago DECIMAL(7,2),
 	data_pagamento DATETIME,
 	promo VARCHAR(15),
 	CONSTRAINT fk_pessoa_curso_usuario FOREIGN KEY (fk_usuario) REFERENCES usuario (id_usuario),
@@ -60,9 +60,9 @@ INSERT INTO classe(nome, data_criacao, quantidade_max_alunos) VALUES ("Yoga", CU
 INSERT INTO curso(curso, valor, descricao, max_alunos, acesso, criacao, termino, lancamento, ativo) VALUES ("Corpo e ação", 157.00, null, 10, "restrito", CURRENT_TIMESTAMP(), null, null, true);
 INSERT INTO curso(curso, valor, descricao, max_alunos, acesso, criacao, termino, lancamento, ativo) VALUES ("Mente e ação", 120.00, null, 10, "privado", CURRENT_TIMESTAMP()+1, null, null, true);
 
-INSERT INTO curso_usuario(fk_usuario, fk_curso, pago, valor, data_pagamento, promo) VALUES (1,1, true, 157, CURRENT_TIMESTAMP(), null);
-INSERT INTO curso_usuario(fk_usuario, fk_curso, pago, valor, data_pagamento, promo) VALUES (1,2, true, 108, CURRENT_TIMESTAMP(), "dezporcento");
-INSERT INTO curso_usuario(fk_usuario, fk_curso, pago, valor, data_pagamento, promo) VALUES (2,2, true, 120, CURRENT_TIMESTAMP(), null);
+INSERT INTO curso_usuario(fk_usuario, fk_curso, pago, valor_pago, data_pagamento, promo) VALUES (1,1, true, 157, CURRENT_TIMESTAMP(), null);
+INSERT INTO curso_usuario(fk_usuario, fk_curso, pago, valor_pago, data_pagamento, promo) VALUES (1,2, true, 108, CURRENT_TIMESTAMP(), "dezporcento");
+INSERT INTO curso_usuario(fk_usuario, fk_curso, pago, valor_pago, data_pagamento, promo) VALUES (2,2, true, 120, CURRENT_TIMESTAMP(), null);
 
 INSERT INTO curso_classe(fk_classe, fk_curso, fk_usuario_criador, data_registro) VALUES (1,1,1,CURRENT_TIMESTAMP());
 INSERT INTO curso_classe(fk_classe, fk_curso, fk_usuario_criador, data_registro) VALUES (2,1,1,CURRENT_TIMESTAMP());
