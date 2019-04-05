@@ -23,6 +23,9 @@ public class Plano {
 	
 	@Column
 	private int duracao;
+	
+	@Column
+	private Double valorPlano;
 
 	public Integer getIdPlano() {
 		return idPlano;

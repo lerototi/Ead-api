@@ -13,7 +13,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="classe_aula")
-public class Classe_aula {
+public class ClasseAula {
 
 	@Id
 	@GeneratedValue
@@ -31,9 +31,18 @@ public class Classe_aula {
 	@JoinColumn(name="fk_usuario", referencedColumnName="idUsuario")
 	private Usuario Usuario;
 	
-	@Column
-	private Date dataRegistro;
-
+	@Column(name="data_aula_iniciada")
+	private Date dataInicio;
+	
+	@Column(name="data_aula_completa")
+	private Date dataFim;
+	
+	@Column(name="aula_iniciada")
+	private Boolean aulaIniciada;
+	
+	@Column(name="aula_completa")
+	private Boolean aulaCompleta;
+	
 	public Long getIdClasseAula() {
 		return idClasseAula;
 	}
@@ -66,14 +75,36 @@ public class Classe_aula {
 		Usuario = usuario;
 	}
 
-	public Date getDataRegistro() {
-		return dataRegistro;
+	public Date getDataInicio() {
+		return dataInicio;
 	}
 
-	public void setDataRegistro(Date dataRegistro) {
-		this.dataRegistro = dataRegistro;
+	public void setDataInicio(Date dataInicio) {
+		this.dataInicio = dataInicio;
 	}
-	
-	
-	
+
+	public Date getDataFim() {
+		return dataFim;
+	}
+
+	public void setDataFim(Date dataFim) {
+		this.dataFim = dataFim;
+	}
+
+	public Boolean getAulaIniciada() {
+		return aulaIniciada;
+	}
+
+	public void setAulaIniciada(Boolean aulaIniciada) {
+		this.aulaIniciada = aulaIniciada;
+	}
+
+	public Boolean getAulaCompleta() {
+		return aulaCompleta;
+	}
+
+	public void setAulaCompleta(Boolean aulaCompleta) {
+		this.aulaCompleta = aulaCompleta;
+	}
+
 }
