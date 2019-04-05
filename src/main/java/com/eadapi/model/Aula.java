@@ -2,6 +2,7 @@ package com.eadapi.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,7 +18,8 @@ public class Aula {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	@Column(name="id_aula")
+	private Long idAula;
 	@NotNull(message="Nome não pode ser nulo")
 	private String nome;
 	private String url;
@@ -28,11 +30,12 @@ public class Aula {
 	@JoinColumn(name = "fk_aula_pai", insertable = true, updatable = true, nullable = true)
 	private Aula aulaPai;
 	
-	public Long getId() {
-		return id;
+	
+	public Long getIdAula() {
+		return idAula;
 	}
-	public void setId(Long id) {
-		this.id = id;
+	public void setIdAula(Long idAula) {
+		this.idAula = idAula;
 	}
 	public String getNome() {
 		return nome;
@@ -69,7 +72,7 @@ public class Aula {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((aulaPai == null) ? 0 : aulaPai.hashCode());
 		return result;
 	}
 	@Override
@@ -81,13 +84,14 @@ public class Aula {
 		if (getClass() != obj.getClass())
 			return false;
 		Aula other = (Aula) obj;
-		if (id == null) {
-			if (other.id != null)
+		if (aulaPai == null) {
+			if (other.aulaPai != null)
 				return false;
-		} else if (!id.equals(other.id))
+		} else if (!aulaPai.equals(other.aulaPai))
 			return false;
 		return true;
 	}
+	
 
 
 }
