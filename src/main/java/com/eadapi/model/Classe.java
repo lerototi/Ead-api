@@ -15,6 +15,7 @@ public class Classe {
 
 	@Id
 	@GeneratedValue
+	@Column(name="id_classe")
 	private Long idClasse;
 	
 	@Column
