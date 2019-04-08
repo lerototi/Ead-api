@@ -60,7 +60,7 @@ public class CursoClasseResource {
 		return ResponseEntity.status(HttpStatus.CREATED).body(cursoClasseSalva);
 	}
 	
-	@DeleteMapping("/{id}")
+	@DeleteMapping("/{idCursoClasse}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void delete(@PathVariable Long idCursoClasse) {
 		
