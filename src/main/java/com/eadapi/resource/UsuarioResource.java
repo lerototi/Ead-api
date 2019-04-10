@@ -76,4 +76,10 @@ public class UsuarioResource {
 		return ResponseEntity.ok(usuarioSalvo);
 	}
 	
+	@PutMapping("/{idUsuario}/ativo")
+	@ResponseStatus(HttpStatus.NO_CONTENT)
+	public void atualizarPropriedadeAtivo(@PathVariable Long idUsuario, @RequestBody Boolean ativo) {
+		usuarioService.atualizarPropAtivo(idUsuario, ativo);
+	}
+	
 }
