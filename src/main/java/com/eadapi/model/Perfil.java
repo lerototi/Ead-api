@@ -17,6 +17,24 @@ public class Perfil {
 	@Column
 	private String imagem;
 
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getImagem() {
+		return imagem;
+	}
+
+	public void setImagem(String imagem) {
+		this.imagem = imagem;
+	}
+	
+	
+
 
 	
 }
