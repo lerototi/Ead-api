@@ -1,6 +1,6 @@
 CREATE TABLE curso(
 	id_curso BIGINT(20) AUTO_INCREMENT PRIMARY KEY NOT NULL,
-	curso VARCHAR(45) NOT NULL,
+	nome VARCHAR(45) NOT NULL,
 	valor DECIMAL(7,2) NOT NULL,
 	descricao VARCHAR(150),
 	max_alunos int,
@@ -57,8 +57,8 @@ INSERT INTO classe(nome, data_criacao, quantidade_max_alunos) VALUES ("Classe de
 INSERT INTO classe(nome, data_criacao, quantidade_max_alunos) VALUES ("Classe de Flexibilidade", CURRENT_TIMESTAMP(), 100);
 INSERT INTO classe(nome, data_criacao, quantidade_max_alunos) VALUES ("Yoga", CURRENT_TIMESTAMP(), 15);
 
-INSERT INTO curso(curso, valor, descricao, max_alunos, acesso, criacao, termino, lancamento, ativo) VALUES ("Corpo e ação", 157.00, null, 10, "restrito", CURRENT_TIMESTAMP(), null, null, true);
-INSERT INTO curso(curso, valor, descricao, max_alunos, acesso, criacao, termino, lancamento, ativo) VALUES ("Mente e ação", 120.00, null, 10, "privado", CURRENT_TIMESTAMP()+1, null, null, true);
+INSERT INTO curso(nome, valor, descricao, max_alunos, acesso, criacao, termino, lancamento, ativo) VALUES ("Corpo e ação", 157.00, null, 10, "RESTRITO", CURRENT_TIMESTAMP(), null, null, true);
+INSERT INTO curso(nome, valor, descricao, max_alunos, acesso, criacao, termino, lancamento, ativo) VALUES ("Mente e ação", 120.00, null, 10, "PRIVADO", CURRENT_TIMESTAMP()+1, null, null, true);
 
 INSERT INTO curso_usuario(fk_usuario, fk_curso, pago, valor_pago, data_pagamento, promo) VALUES (1,1, true, 157, CURRENT_TIMESTAMP(), null);
 INSERT INTO curso_usuario(fk_usuario, fk_curso, pago, valor_pago, data_pagamento, promo) VALUES (1,2, true, 108, CURRENT_TIMESTAMP(), "dezporcento");

@@ -5,18 +5,20 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-@Table
+@Table(name="curso")
 @Entity
 public class Curso {
 
 	@Id
 	@GeneratedValue
+	@Column(name="id_curso")
 	private Long idCurso;
 	
 	@Column
@@ -32,7 +34,7 @@ public class Curso {
 	private Integer maxAlunos;
 	
 	@Column
-	@Enumerated
+	@Enumerated(EnumType.STRING)
 	private Acesso acesso;
 	
 	@Column
@@ -48,7 +50,7 @@ public class Curso {
 	private Boolean ativo;
 	
 	@OneToMany(mappedBy="curso")
-	private List<UsuarioCurso> usuarioCursos;
+	private List<CursoUsuario> usuarioCursos;
 
 
 	public Long getIdCurso() {

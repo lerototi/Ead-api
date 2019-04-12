@@ -1,5 +1,6 @@
 package com.eadapi.model;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -11,10 +12,16 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name="usuario")
-public class Usuario {
-	
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+public class Usuario implements Serializable{
+
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue
 	private Long idUsuario;
@@ -41,7 +48,8 @@ public class Usuario {
 	
 	
 	@OneToMany(mappedBy="usuario")
-	private List<UsuarioCurso> usuarioCursos;
+	@JsonBackReference
+	private List<CursoUsuario> usuarioCursos;
 
 	public Long getIdUsuario() {
 		return idUsuario;
@@ -89,6 +97,39 @@ public class Usuario {
 
 	public void setAtivo(boolean ativo) {
 		this.ativo = ativo;
+	}
+
+	public List<CursoUsuario> getUsuarioCursos() {
+		return usuarioCursos;
+	}
+
+	public void setUsuarioCursos(List<CursoUsuario> usuarioCursos) {
+		this.usuarioCursos = usuarioCursos;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((idUsuario == null) ? 0 : idUsuario.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Usuario other = (Usuario) obj;
+		if (idUsuario == null) {
+			if (other.idUsuario != null)
+				return false;
+		} else if (!idUsuario.equals(other.idUsuario))
+			return false;
+		return true;
 	}
 	
 	

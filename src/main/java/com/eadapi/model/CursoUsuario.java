@@ -1,5 +1,6 @@
 package com.eadapi.model;
 
+import java.io.Serializable;
 import java.sql.Date;
 
 import javax.persistence.Column;
@@ -10,14 +11,20 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-@Table(name="usuario_curso")
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+@Table(name="curso_usuario")
 @Entity
-public class UsuarioCurso {
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+public class CursoUsuario implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue
-	@Column(name="id_usuario_curso")
-	private Long idUsuarioCurso;
+	@Column(name="id_curso_usuario")
+	private Long idCursoUsuario;
 	
 	@Column
 	private Boolean pago;
@@ -36,17 +43,17 @@ public class UsuarioCurso {
 	private Curso curso;
 	
 	@ManyToOne
-	@JoinColumn(name="fk_usuario", nullable=false)
+	@JsonManagedReference
+	@JoinColumn(name="fk_usuario", referencedColumnName="idUsuario", nullable=false)
 	private Usuario usuario;
 
 
-
-	public Long getIdUsuarioCurso() {
-		return idUsuarioCurso;
+	public Long getIdCursoUsuario() {
+		return idCursoUsuario;
 	}
 
-	public void setIdUsuarioCurso(Long idUsuarioCurso) {
-		this.idUsuarioCurso = idUsuarioCurso;
+	public void setIdCursoUsuario(Long idCursoUsuario) {
+		this.idCursoUsuario = idCursoUsuario;
 	}
 
 	public Boolean getPago() {
@@ -95,6 +102,31 @@ public class UsuarioCurso {
 
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((idCursoUsuario == null) ? 0 : idCursoUsuario.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		CursoUsuario other = (CursoUsuario) obj;
+		if (idCursoUsuario == null) {
+			if (other.idCursoUsuario != null)
+				return false;
+		} else if (!idCursoUsuario.equals(other.idCursoUsuario))
+			return false;
+		return true;
 	}
 	
 	
