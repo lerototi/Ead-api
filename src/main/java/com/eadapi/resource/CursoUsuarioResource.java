@@ -41,9 +41,9 @@ public class CursoUsuarioResource {
 	}
 	
 	@GetMapping("/{idCursoUsuario}")
-	private ResponseEntity<CursoUsuario> buscarPorId(@PathVariable Long id){
+	private ResponseEntity<CursoUsuario> buscarPorId(@PathVariable Long idCursoUsuario){
 		
-		CursoUsuario cursoUsuarioSalvo = cursoUsuarioRepository.getOne(id);
+		CursoUsuario cursoUsuarioSalvo = cursoUsuarioRepository.getOne(idCursoUsuario);
 		
 		return cursoUsuarioSalvo != null ? ResponseEntity.ok(cursoUsuarioSalvo) : ResponseEntity.notFound().build();
 	}

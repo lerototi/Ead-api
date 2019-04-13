@@ -11,12 +11,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Table(name="curso_usuario")
 @Entity
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class CursoUsuario implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -39,11 +37,10 @@ public class CursoUsuario implements Serializable{
 	private String promo;
 	
 	@ManyToOne
-	@JoinColumn(name="fk_curso", nullable=false)
+	@JoinColumn(name="fk_curso", nullable=false, referencedColumnName="id_curso")
 	private Curso curso;
 	
 	@ManyToOne
-	@JsonManagedReference
 	@JoinColumn(name="fk_usuario", referencedColumnName="idUsuario", nullable=false)
 	private Usuario usuario;
 

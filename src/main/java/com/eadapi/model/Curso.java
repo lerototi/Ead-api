@@ -12,8 +12,12 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Table(name="curso")
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Curso {
 
 	@Id
@@ -50,6 +54,7 @@ public class Curso {
 	private Boolean ativo;
 	
 	@OneToMany(mappedBy="curso")
+	@JsonBackReference
 	private List<CursoUsuario> usuarioCursos;
 
 
